@@ -16,3 +16,5 @@ C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.Persistence.pdb
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\obj\Debug\net7.0\Application.sourcelink.json
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\obj\Debug\net7.0\Application.csproj.CopyComplete
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.Application.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.Application.pdb
