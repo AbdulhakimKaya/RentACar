@@ -272,3 +272,4 @@ C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\D
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\System.Linq.Dynamic.Core.dll
