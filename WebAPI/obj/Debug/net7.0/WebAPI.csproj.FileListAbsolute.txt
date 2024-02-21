@@ -275,3 +275,5 @@ C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\D
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\System.Linq.Dynamic.Core.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Core.CrossCuttingConcerns.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Core.CrossCuttingConcerns.pdb
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll

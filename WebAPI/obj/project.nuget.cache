@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JkXdwTo5tgN9VHJc5hwitoI1hy98Bi5LbrjGOeFR9fPlQgmspxCE6J44fe+9glhujXPcVrYOyntXionPEluoHg==",
+  "dgSpecHash": "xCgEkXE9uZHsY6436XwROeof3g5SwtMTOrM0xSJMcKlb2Ucu7HwOFw3UcnmyFgqVvgVnE4T+9t8NFwI0I5aHRA==",
   "success": true,
   "projectFilePath": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\abdul\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\abdul\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\abdul\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\abdul\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\abdul\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "C:\\Users\\abdul\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\abdul\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\abdul\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
