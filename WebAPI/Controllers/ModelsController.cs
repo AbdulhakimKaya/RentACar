@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.Features.Brands.Queries.GetList;
 using Application.Features.Models.Commands.Create;
+using Application.Features.Models.Commands.Delete;
 using Application.Features.Models.Commands.Update;
 using Application.Features.Models.Queries.GetList;
 using Application.Features.Models.Queries.GetListByDynamic;
@@ -47,6 +48,14 @@ namespace WebAPI.Controllers
         {
             GetListByDynamicModelQuery getListByDynamicModelQuery = new() { PageRequest = pageRequest, DynamicQuery = dynamicQuery};
             GetListResponse<GetListByDynamicModelListItem> response = await Mediator!.Send(getListByDynamicModelQuery);
+            return Ok(response);
+        }
+        
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
+        {
+            DeletedModelResponse response = await Mediator!.Send(new DeleteModelCommand { Id = id });
+
             return Ok(response);
         }
     }

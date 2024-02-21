@@ -1,4 +1,5 @@
 using Application.Features.Models.Commands.Create;
+using Application.Features.Models.Commands.Delete;
 using Application.Features.Models.Commands.Update;
 using Application.Features.Models.Queries.GetList;
 using Application.Features.Models.Queries.GetListByDynamic;
@@ -18,6 +19,9 @@ public class MappingProfiles : Profile
         
         CreateMap<Model, UpdateModelCommand>().ReverseMap();
         CreateMap<Model, UpdatedModelResponse>().ReverseMap();
+        
+        CreateMap<Model, DeleteModelCommand>().ReverseMap();
+        CreateMap<Model, DeletedModelResponse>().ReverseMap();
         
         CreateMap<Model, GetListModelListItemDto>()
             .ForMember(destinationMember: m => m.BrandName, memberOptions: opt => opt.MapFrom(m => m.Brand!.Name))
