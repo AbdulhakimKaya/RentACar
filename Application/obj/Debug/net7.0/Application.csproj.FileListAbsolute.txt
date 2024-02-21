@@ -18,3 +18,5 @@ C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\obj\Debug\net7.0\Application.csproj.CopyComplete
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.Application.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.Application.pdb
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.CrossCuttingConcerns.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.CrossCuttingConcerns.pdb

@@ -16,6 +16,7 @@
           "Swashbuckle.AspNetCore": "6.5.0",
           "System.Linq.Dynamic.Core": "1.3.9-preview-02",
           "Core.Application": "1.0.0.0",
+          "Core.CrossCuttingConcerns": "1.0.0.0",
           "Core.Persistence": "1.0.0.0"
         },
         "runtime": {
@@ -2700,6 +2701,14 @@
           }
         }
       },
+      "Core.CrossCuttingConcerns/1.0.0.0": {
+        "runtime": {
+          "Core.CrossCuttingConcerns.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Core.Persistence/1.0.0.0": {
         "runtime": {
           "Core.Persistence.dll": {
@@ -4391,6 +4400,11 @@
       "sha512": ""
     },
     "Core.Application/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.CrossCuttingConcerns/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

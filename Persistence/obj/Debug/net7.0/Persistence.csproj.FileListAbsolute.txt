@@ -20,3 +20,5 @@ C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Persistence\
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Persistence\obj\Debug\net7.0\ref\Persistence.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Persistence\bin\Debug\net7.0\Core.Application.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Persistence\bin\Debug\net7.0\Core.Application.pdb
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Persistence\bin\Debug\net7.0\Core.CrossCuttingConcerns.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Persistence\bin\Debug\net7.0\Core.CrossCuttingConcerns.pdb

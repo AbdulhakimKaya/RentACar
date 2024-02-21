@@ -1,3 +1,4 @@
+using Application.Features.Brands.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
@@ -12,16 +13,20 @@ public class CreateBrandCommand : IRequest<CreatedBrandResponse>
     public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreatedBrandResponse>
     {
         private readonly IBrandRepository _brandRepository;
+        private readonly BrandBusinessRules _brandBusinessRules;
         private readonly IMapper _mapper;
 
-        public CreateBrandCommandHandler(IBrandRepository brandRepository, IMapper mapper)
+        public CreateBrandCommandHandler(IBrandRepository brandRepository, BrandBusinessRules brandBusinessRules, IMapper mapper)
         {
             _brandRepository = brandRepository;
+            _brandBusinessRules = brandBusinessRules;
             _mapper = mapper;
         }
 
         public async Task<CreatedBrandResponse> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
         {
+            await _brandBusinessRules.BrandNameCannotBeDuplicatedWhenInserted(request.Name);
+            
             Brand brand = _mapper.Map<Brand>(request);
             brand.Id = Guid.NewGuid();
 
