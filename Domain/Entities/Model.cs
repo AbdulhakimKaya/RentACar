@@ -31,4 +31,6 @@ public class Model : Entity<Guid>
         DailyPrice = dailyPrice;
         ImageUrl = ımageUrl;
     }
+    
+    
 }

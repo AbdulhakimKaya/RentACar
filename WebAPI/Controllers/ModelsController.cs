@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.Features.Brands.Queries.GetList;
+using Application.Features.Models.Commands.Create;
+using Application.Features.Models.Commands.Update;
 using Application.Features.Models.Queries.GetList;
 using Application.Features.Models.Queries.GetListByDynamic;
 using Core.Application.Requests;
@@ -17,6 +19,21 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ModelsController : BaseController
     {
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody] CreateModelCommand createModelCommand)
+        {
+            CreatedModelResponse response = await Mediator!.Send(createModelCommand);
+            return Ok(response);
+        }
+        
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdateModelCommand updateModelCommand)
+        {
+            UpdatedModelResponse response = await Mediator!.Send(updateModelCommand);
+
+            return Ok(response);
+        }
+        
         [HttpGet]
         public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {

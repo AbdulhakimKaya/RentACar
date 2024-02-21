@@ -1,3 +1,5 @@
+using Application.Features.Models.Commands.Create;
+using Application.Features.Models.Commands.Update;
 using Application.Features.Models.Queries.GetList;
 using Application.Features.Models.Queries.GetListByDynamic;
 using AutoMapper;
@@ -11,6 +13,12 @@ public class MappingProfiles : Profile
 {
     public MappingProfiles()
     {
+        CreateMap<Model, CreateModelCommand>().ReverseMap();
+        CreateMap<Model, CreatedModelResponse>().ReverseMap();
+        
+        CreateMap<Model, UpdateModelCommand>().ReverseMap();
+        CreateMap<Model, UpdatedModelResponse>().ReverseMap();
+        
         CreateMap<Model, GetListModelListItemDto>()
             .ForMember(destinationMember: m => m.BrandName, memberOptions: opt => opt.MapFrom(m => m.Brand!.Name))
             .ForMember(destinationMember: m => m.FuelName, memberOptions: opt => opt.MapFrom(m => m.Fuel!.Name))
