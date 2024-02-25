@@ -10,10 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
 
-// builder.Services.AddDistributedMemoryCache();
+builder.Services.AddDistributedMemoryCache();
 
 // docker run --name my-redis -p 6379:6379 -d redis
-builder.Services.AddStackExchangeRedisCache(opt => opt.Configuration = "localhost:6379");
+// builder.Services.AddStackExchangeRedisCache(opt => opt.Configuration = "localhost:6379");
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -28,7 +28,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// if (app.Environment.IsProduction())
+if (app.Environment.IsProduction())
     app.ConfigureCustomExceptionMiddleware();
 
 app.UseHttpsRedirection();
