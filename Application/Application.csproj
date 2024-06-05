@@ -7,6 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="Features\Cars\Commands\Delete\" />
+      <Folder Include="Features\Cars\Commands\Update\" />
+      <Folder Include="Features\Fuels\Commands\Delete\" />
+      <Folder Include="Features\Fuels\Commands\Update\" />
       <Folder Include="Features\Models\Constants\" />
       <Folder Include="Features\Models\Rules\" />
     </ItemGroup>
