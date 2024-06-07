@@ -5,7 +5,7 @@ using Core.Application.Pipelines.Transaction;
 using Core.Application.Pipelines.Validation;
 using Core.Application.Rules;
 using Core.CrossCuttingConcerns.SeriLog;
-using Core.CrossCuttingConcerns.SeriLog.Logger;
+using Core.CrossCuttingConcerns.SeriLog.Loggers;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -36,7 +36,8 @@ public static class ApplicationServiceRegistration
             configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
 
-        services.AddSingleton<LoggerServiceBase, FileLogger>();
+        // services.AddSingleton<LoggerServiceBase, FileLogger>();
+        services.AddSingleton<LoggerServiceBase, MsSqlLogger>();
         
         return services;
     }

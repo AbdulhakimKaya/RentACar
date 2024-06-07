@@ -289,6 +289,10 @@
               "target": "Package",
               "version": "[5.0.1-dev-00972, )"
             },
+            "Serilog.Sinks.MSSqlServer": {
+              "target": "Package",
+              "version": "[6.6.2-dev-00080, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"

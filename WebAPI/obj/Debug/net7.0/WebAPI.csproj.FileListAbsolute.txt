@@ -285,3 +285,5 @@ C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\D
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\StackExchange.Redis.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Serilog.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Serilog.Sinks.File.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Serilog.Sinks.MSSqlServer.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Serilog.Sinks.PeriodicBatching.dll
