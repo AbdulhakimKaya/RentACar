@@ -20,3 +20,5 @@ C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.Application.pdb
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.CrossCuttingConcerns.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.CrossCuttingConcerns.pdb
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.Security.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.Security.pdb
