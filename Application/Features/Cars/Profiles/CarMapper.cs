@@ -11,8 +11,8 @@ public class CarMapper: Profile
 {
     public CarMapper()
     {
-        // CreateMap<CreateCarCommand, Car>().ReverseMap();
-        // CreateMap<Car, CreateCarCommandResponse>().ReverseMap();
-        // CreateMap<Paginate<CarDetailDto>, GetListResponse<CarDetailDto>>();
+        CreateMap<CreateCarCommand, Car>().ReverseMap();
+        CreateMap<Car, CreateCarCommandResponse>().ReverseMap();
+        CreateMap<Paginate<CarDetailDto>, GetListResponse<CarDetailDto>>();
     }
 }

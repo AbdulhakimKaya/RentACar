@@ -19,6 +19,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IBrandRepository, BrandRepository>();
         services.AddScoped<IModelRepository, ModelRepository>();
         services.AddScoped<IFuelRepository, FuelRepository>();
+        services.AddScoped<ICarRepository, CarRepository>();
+        services.AddScoped<IImageRepository, ImageRepository>();
         
         services.AddScoped<IEmailAuthenticatorRepository, EmailAuthenticatorRepository>();
         services.AddScoped<IOperationClaimRepository, OperationClaimRepository>();
@@ -26,6 +28,7 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
+        services.AddScoped<ITransmissionRepository, TransmissionRepository>();
 
         return services;
     }

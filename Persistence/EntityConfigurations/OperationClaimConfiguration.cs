@@ -1,3 +1,6 @@
+using System.Reflection;
+using Application;
+using Core.Security.Constants;
 using Core.Security.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -20,40 +23,40 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
 
         builder.HasMany(oc => oc.UserOperationClaims);
 
-        //builder.HasData(_seeds);
+        builder.HasData(_seeds);
     }
 
-    //private IEnumerable<OperationClaim> _seeds
-    //{
-    //    get
-    //    {
-    //        int id = 0;
+    private IEnumerable<OperationClaim> _seeds
+    {
+        get
+        {
+            int id = 0;
 
-    //        yield return new OperationClaim { Id = ++id, Name = GeneralOperationClaims.Admin };
+            yield return new OperationClaim { Id = ++id, Name = GeneralOperationClaims.Admin };
 
-    //        #region Feature Operation Claims
-    //        IEnumerable<Type> featureOperationClaimsTypes = Assembly
-    //            .GetAssembly(typeof(ApplicationServiceRegistration))!
-    //            .GetTypes()
-    //            .Where(
-    //                type =>
-    //                    (type.Namespace?.Contains("Features") == true)
-    //                    && (type.Namespace?.Contains("Constants") == true)
-    //                    && type.IsClass
-    //                    && type.Name.EndsWith("OperationClaims")
-    //            );
-    //        foreach (Type type in featureOperationClaimsTypes)
-    //        {
-    //            FieldInfo[] typeFields = type.GetFields(BindingFlags.Public | BindingFlags.Static);
-    //            IEnumerable<string> typeFieldsValues = typeFields.Select(field => field.GetValue(null)!.ToString()!);
+            #region Feature Operation Claims
+            IEnumerable<Type> featureOperationClaimsTypes = Assembly
+                .GetAssembly(typeof(ApplicationServiceRegistration))!
+                .GetTypes()
+                .Where(
+                    type =>
+                        (type.Namespace?.Contains("Features") == true)
+                        && (type.Namespace?.Contains("Constants") == true)
+                        && type.IsClass
+                        && type.Name.EndsWith("OperationClaims")
+                );
+            foreach (Type type in featureOperationClaimsTypes)
+            {
+                FieldInfo[] typeFields = type.GetFields(BindingFlags.Public | BindingFlags.Static);
+                IEnumerable<string> typeFieldsValues = typeFields.Select(field => field.GetValue(null)!.ToString()!);
 
-    //            IEnumerable<OperationClaim> featureOperationClaimsToAdd = typeFieldsValues.Select(
-    //                value => new OperationClaim { Id = ++id, Name = value }
-    //            );
-    //            foreach (OperationClaim featureOperationClaim in featureOperationClaimsToAdd)
-    //                yield return featureOperationClaim;
-    //        }
-    //        #endregion
-    //    }
-    //}
+                IEnumerable<OperationClaim> featureOperationClaimsToAdd = typeFieldsValues.Select(
+                    value => new OperationClaim { Id = ++id, Name = value }
+                );
+                foreach (OperationClaim featureOperationClaim in featureOperationClaimsToAdd)
+                    yield return featureOperationClaim;
+            }
+            #endregion
+        }
+    }
 }

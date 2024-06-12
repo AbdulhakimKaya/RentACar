@@ -19,8 +19,13 @@ public class UserOperationClaimConfiguration : IEntityTypeConfiguration<UserOper
 
         builder.HasQueryFilter(uoc => !uoc.DeletedDate.HasValue);
 
-        builder.HasOne(uoc => uoc.User);
-        builder.HasOne(uoc => uoc.OperationClaim);
+        builder.HasOne(uoc => uoc.User)
+            .WithMany(u => u.UserOperationClaims)
+            .HasForeignKey(uoc => uoc.UserId);
+
+        builder.HasOne(uoc => uoc.OperationClaim)
+            .WithMany(oc => oc.UserOperationClaims)
+            .HasForeignKey(uoc => uoc.OperationClaimId);
 
         builder.HasData(getSeeds());
     }

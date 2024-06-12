@@ -34,7 +34,7 @@ public class CarRepository : EfRepositoryBase<Car, Guid, BaseDbContext>, ICarRep
                 ModelName = m.Name,
                 TransmissionName = t.Name
             };
-        var response = await detail.ToPaginateAsync(index: index, size: size);
+        var response = await detail.AsNoTracking().ToPaginateAsync(index: index, size: size);
 
         return response;
     }
@@ -60,8 +60,35 @@ public class CarRepository : EfRepositoryBase<Car, Guid, BaseDbContext>, ICarRep
                 ModelName = m.Name,
                 TransmissionName = t.Name
             };
-        var response = await detail.SingleAsync();
+        var response = await detail.AsNoTracking().SingleAsync();
 
         return response;
     }
+
+    public async Task<List<CarDetailDto>> GetDetailsNoPaginate()
+    {
+        var detail =
+            
+            from c in Context.Cars
+            join m in Context.Models on c.ModelId equals m.Id
+            join b in Context.Brands on m.BrandId  equals b.Id
+            join f in Context.Fuels on m.FuelId equals f.Id
+            join t in Context.Transmissions  on m.TransmissionId equals t.Id 
+            select new CarDetailDto()
+            {
+                Plate = c.Plate,
+                CarState = c.CarState,
+                DailyPrice = m.DailyPrice,
+                ImageUrl = m.ImageUrl,
+                BrandName = b.Name,
+                FuelName = f.Name,
+                MinFIndexScore = c.MinFIndexScore,
+                ModelName = m.Name,
+                TransmissionName = t.Name
+            };
+
+        var response = await detail.AsNoTracking().ToListAsync();
+        return response;
+    }
+    
 }

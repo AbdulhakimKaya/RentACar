@@ -14,6 +14,9 @@ public class Car : Entity<Guid>
 
     public virtual Model? Model { get; set; }
 
+    public ICollection<Image> Images { get; set; }
+    
+
     public Car()
     {
     }
@@ -26,5 +29,7 @@ public class Car : Entity<Guid>
         ModelYear = modelYear;
         Plate = plate;
         MinFIndexScore = minFIndexScore;
+        Images = new HashSet<Image>();
+        
     }
 }

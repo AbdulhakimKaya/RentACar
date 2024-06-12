@@ -9,4 +9,6 @@ public interface ICarRepository : IAsyncRepository<Car, Guid>, IRepository<Car, 
 {
     Task<Paginate<CarDetailDto>> GetAllDetails(int index, int size);
     Task<CarDetailDto> GetAllDetailsById(Guid id);
+
+    Task<List<CarDetailDto>> GetDetailsNoPaginate();
 }

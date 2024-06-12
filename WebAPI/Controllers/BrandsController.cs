@@ -7,6 +7,7 @@ using Application.Features.Brands.Commands.Delete;
 using Application.Features.Brands.Commands.Update;
 using Application.Features.Brands.Queries.GetById;
 using Application.Features.Brands.Queries.GetList;
+using Application.Features.Brands.Queries.GetListNoPaginate;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using MediatR;
@@ -26,7 +27,7 @@ namespace WebAPI.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
+        [HttpGet("paginate")]
         public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
             GetListBrandQuery getListBrandQuery = new() { PageRequest = pageRequest};
@@ -34,6 +35,16 @@ namespace WebAPI.Controllers
             return Ok(response);
         }
 
+
+        [HttpGet("getall")]
+        public async Task<IActionResult> GetList()
+        {
+            var response = await Mediator.Send(new GetListNoPaginateBrandQuery());
+            return Ok(response);
+
+        }
+        
+        
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
