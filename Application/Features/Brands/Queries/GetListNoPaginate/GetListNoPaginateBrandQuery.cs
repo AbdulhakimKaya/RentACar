@@ -14,7 +14,6 @@ public class GetListNoPaginateBrandQuery  : IRequest<List<GetListBrandListItemDt
     public string? CacheGroupKey => "GetBrands";
     public TimeSpan? SlidingExpiration { get; }
     
-    
     public class GetListNoPaginateBrandQueryHandler : IRequestHandler<GetListNoPaginateBrandQuery,List<GetListBrandListItemDto>>
     {
         private readonly IBrandRepository _brandRepository;
@@ -28,14 +27,10 @@ public class GetListNoPaginateBrandQuery  : IRequest<List<GetListBrandListItemDt
 
         public async Task<List<GetListBrandListItemDto>> Handle(GetListNoPaginateBrandQuery request, CancellationToken cancellationToken)
         {
-
             var brands = await _brandRepository.Query().AsNoTracking().ToListAsync(cancellationToken: cancellationToken);
             List<GetListBrandListItemDto> dtos = _mapper.Map<List<GetListBrandListItemDto>>(brands);
 
             return dtos;
-
-
         }
     }
-    
 }

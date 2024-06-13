@@ -1,4 +1,7 @@
+using Application.Features.Brands.Commands.Update;
 using Application.Features.Fuels.Commands.Create;
+using Application.Features.Fuels.Commands.Delete;
+using Application.Features.Fuels.Commands.Update;
 using Application.Features.Fuels.Queries.GetById;
 using Application.Features.Fuels.Queries.GetList;
 using AutoMapper;
@@ -12,14 +15,20 @@ public class FuelMapper : Profile
 {
     public FuelMapper()
     {
-        CreateMap<CreateFuelCommand, Fuel>().ReverseMap();
+        CreateMap<Fuel, CreateFuelCommand>().ReverseMap();
         CreateMap<Fuel, CreateFuelResponse>().ReverseMap();
+        
+        CreateMap<Fuel, UpdateFuelCommand>().ReverseMap();
+        CreateMap<Fuel, UpdatedFuelResponse>().ReverseMap();
+        
+        CreateMap<Fuel, DeleteFuelCommand>().ReverseMap();
+        CreateMap<Fuel, DeletedFuelResponse>().ReverseMap();
+        
+        CreateMap<Fuel, GetListFuelListItemDto>().ReverseMap();
 
-
-        CreateMap<Fuel, GetByListFuelResponse>().ReverseMap();
-
+        CreateMap<Fuel, GetListFuelListItemDto>().ReverseMap();
         CreateMap<Fuel, GetByIdQueryResponse>().ReverseMap();
-        CreateMap<Paginate<Fuel>, GetListResponse<GetByListFuelResponse>>().ReverseMap();
+        CreateMap<Paginate<Fuel>, GetListResponse<GetListFuelListItemDto>>().ReverseMap();
     }
     
 }

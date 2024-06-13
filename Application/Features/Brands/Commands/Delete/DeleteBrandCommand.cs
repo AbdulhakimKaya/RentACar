@@ -9,11 +9,11 @@ namespace Application.Features.Brands.Commands.Delete;
 public class DeleteBrandCommand : IRequest<DeletedBrandResponse>, ICacheRemoverRequest
 {
     public Guid Id { get; set; }
-    
+
     public string CacheKey => "";
     public bool BypassCache => false;
     public string? CacheGroupKey => "GetBrands";
-    
+
     public class DeleteBrandCommandHandler : IRequestHandler<DeleteBrandCommand, DeletedBrandResponse>
     {
         private readonly IBrandRepository _brandRepository;

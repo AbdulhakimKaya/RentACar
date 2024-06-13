@@ -14,9 +14,9 @@ namespace Application.Features.Transmissions.Commands.Create;
 public class CreateTransmissionCommand: IRequest<CreatedTransmissionResponse>, ITransactionalRequest, ICacheRemoverRequest, ILoggableRequest
 {
     public string Name { get; set; }
-    public string? CacheKey { get; }
-    public bool BypassCache { get; }
-    public string? CacheGroupKey { get; }
+    public string CacheKey => "";
+    public bool BypassCache => false;
+    public string? CacheGroupKey => "GetTransmissions";
     
     public class CreateTransmissionCommandHandler : IRequestHandler<CreateTransmissionCommand, CreatedTransmissionResponse>
     {

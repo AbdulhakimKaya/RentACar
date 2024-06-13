@@ -1,6 +1,6 @@
 namespace Application.Features.Fuels.Queries.GetList;
 
-public  class GetByListFuelResponse
+public  class GetListFuelListItemDto
 {
    public Guid Id { get; set; } 
     

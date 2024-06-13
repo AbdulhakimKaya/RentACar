@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Application.Features.Fuels.Queries.GetList;
 
-public sealed class GetByListFuelQuery : IRequest<GetListResponse<GetByListFuelResponse>> , ICacheableRequest
+public sealed class GetListFuelQuery : IRequest<GetListResponse<GetListFuelListItemDto>> , ICacheableRequest
 {
 
     public PageRequest PageRequest { get; set; }
@@ -18,7 +18,7 @@ public sealed class GetByListFuelQuery : IRequest<GetListResponse<GetByListFuelR
     public TimeSpan? SlidingExpiration { get; }
     
     
-    public class GetByListFuelQueryHandler : IRequestHandler<GetByListFuelQuery,GetListResponse<GetByListFuelResponse>>
+    public class GetByListFuelQueryHandler : IRequestHandler<GetListFuelQuery,GetListResponse<GetListFuelListItemDto>>
     {
 
         private readonly IFuelRepository _fuelRepository;
@@ -32,13 +32,13 @@ public sealed class GetByListFuelQuery : IRequest<GetListResponse<GetByListFuelR
         
         
 
-        public async Task<GetListResponse<GetByListFuelResponse>> Handle(GetByListFuelQuery request, CancellationToken cancellationToken)
+        public async Task<GetListResponse<GetListFuelListItemDto>> Handle(GetListFuelQuery request, CancellationToken cancellationToken)
         {
             var fuels = await _fuelRepository.GetListAsync(index: request.PageRequest.PageIndex,
                 size: request.PageRequest.PageSize, cancellationToken: cancellationToken);
 
 
-            GetListResponse<GetByListFuelResponse> response = _mapper.Map<GetListResponse<GetByListFuelResponse>>(fuels);
+            GetListResponse<GetListFuelListItemDto> response = _mapper.Map<GetListResponse<GetListFuelListItemDto>>(fuels);
 
             return response;
 

@@ -41,7 +41,6 @@ namespace WebAPI.Controllers
         {
             var response = await Mediator.Send(new GetListNoPaginateBrandQuery());
             return Ok(response);
-
         }
         
         

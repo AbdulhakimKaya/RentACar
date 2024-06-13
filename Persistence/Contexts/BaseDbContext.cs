@@ -13,6 +13,7 @@ public class BaseDbContext : DbContext
     public DbSet<Car> Cars { get; set; }
     public DbSet<Model> Models { get; set; }
     public DbSet<Fuel> Fuels { get; set; }
+    public DbSet<Color> Colors { get; set; }
     public DbSet<Transmission> Transmissions { get; set; }
     
     public DbSet<OperationClaim> OperationClaims { get; set; }
