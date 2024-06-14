@@ -1,6 +1,7 @@
 using Application.Features.Colors.Commands.Create;
 using Application.Features.Colors.Commands.Delete;
 using Application.Features.Colors.Commands.Update;
+using Application.Features.Colors.Queries.GetById;
 using Application.Features.Colors.Queries.GetListNoPaginate;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +27,14 @@ public class ColorsController: BaseController
 
     }
     
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+    {
+        GetByIdColorQuery getByIdColorQuery = new() { Id = id};
+        GetByIdColorResponse response = await Mediator!.Send(getByIdColorQuery);
+        return Ok(response);
+    }
+    
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] UpdateColorCommand updateColorCommand)
     {
@@ -34,7 +43,7 @@ public class ColorsController: BaseController
         return Ok(response);
     }
     
-    [HttpDelete("{id}")]
+    [HttpDelete("delete/{id}")]
     public async Task<IActionResult> Delete([FromRoute] Guid id)
     {
         DeletedColorResponse response = await Mediator!.Send(new DeleteColorCommand { Id = id });

@@ -14,7 +14,6 @@
       <Folder Include="Features\Images\Rules\" />
       <Folder Include="Features\Models\Constants\" />
       <Folder Include="Features\Models\Rules\" />
-      <Folder Include="Features\Transmissions\Commands\Update\" />
       <Folder Include="Features\Users\Commands\Delete\" />
       <Folder Include="Features\Users\Commands\Update\" />
       <Folder Include="Features\Users\Queries\" />

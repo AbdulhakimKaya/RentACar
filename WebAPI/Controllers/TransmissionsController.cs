@@ -1,5 +1,6 @@
 using Application.Features.Transmissions.Commands.Create;
 using Application.Features.Transmissions.Commands.Delete;
+using Application.Features.Transmissions.Queries.GetById;
 using Application.Features.Transmissions.Queries.GetListNoPaginate;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +24,15 @@ public class TransmissionsController: BaseController
         return Ok(response);
     }
     
-    [HttpDelete("{id}")]
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+    {
+        GetByIdTransmissionQuery getByIdTransmissionQuery = new() { Id = id};
+        GetByIdTransmissionResponse response = await Mediator!.Send(getByIdTransmissionQuery);
+        return Ok(response);
+    }
+    
+    [HttpDelete("delete/{id}")]
     public async Task<IActionResult> Delete([FromRoute] Guid id)
     {
         DeletedTransmissionResponse response = await Mediator!.Send(new DeleteTransmissionCommand() { Id = id });

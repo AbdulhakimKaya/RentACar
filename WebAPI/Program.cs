@@ -27,11 +27,12 @@ builder.Services.AddStackExchangeRedisCache(opt => opt.Configuration = "localhos
 // Add CORS services
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", builder =>
+    options.AddPolicy("AllowSpecificOrigin", builder =>
     {
-        builder.AllowAnyOrigin()
+        builder.WithOrigins("http://localhost:3000") // React uygulamanızın çalıştığı köken
             .AllowAnyMethod()
-            .AllowAnyHeader();
+            .AllowAnyHeader()
+            .AllowCredentials(); // Kimlik doğrulama bilgilerini destekler
     });
 });
 
@@ -53,7 +54,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowAll"); // Enable the CORS policy
+app.UseCors("AllowSpecificOrigin"); // Enable the CORS policy
 
 app.UseAuthorization();
 

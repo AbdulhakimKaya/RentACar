@@ -1,5 +1,6 @@
 using Application.Features.Transmissions.Commands.Create;
 using Application.Features.Transmissions.Commands.Delete;
+using Application.Features.Transmissions.Queries.GetById;
 using Application.Features.Transmissions.Queries.GetList;
 using AutoMapper;
 using Domain.Entities;
@@ -17,5 +18,6 @@ public class MappingProfiles: Profile
         CreateMap<Transmission, DeletedTransmissionResponse>().ReverseMap();
         
         CreateMap<Transmission, GetListTransmissionListItemDto>().ReverseMap();
+        CreateMap<Transmission, GetByIdTransmissionResponse>().ReverseMap();
     }
 }

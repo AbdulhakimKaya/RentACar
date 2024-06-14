@@ -27,7 +27,7 @@ public class FuelMapper : Profile
         CreateMap<Fuel, GetListFuelListItemDto>().ReverseMap();
 
         CreateMap<Fuel, GetListFuelListItemDto>().ReverseMap();
-        CreateMap<Fuel, GetByIdQueryResponse>().ReverseMap();
+        CreateMap<Fuel, GetByIdFuelResponse>().ReverseMap();
         CreateMap<Paginate<Fuel>, GetListResponse<GetListFuelListItemDto>>().ReverseMap();
     }
     

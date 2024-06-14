@@ -2,6 +2,7 @@ using Application.Features.Brands.Commands.Delete;
 using Application.Features.Colors.Commands.Create;
 using Application.Features.Colors.Commands.Delete;
 using Application.Features.Colors.Commands.Update;
+using Application.Features.Colors.Queries.GetById;
 using Application.Features.Colors.Queries.GetList;
 using AutoMapper;
 using Domain.Entities;
@@ -22,5 +23,6 @@ public class MappingProfiles: Profile
         CreateMap<Color, DeletedColorResponse>().ReverseMap();
         
         CreateMap<Color, GetListColorListItemDto>().ReverseMap();
+        CreateMap<Color, GetByIdColorResponse>().ReverseMap();
     }
 }

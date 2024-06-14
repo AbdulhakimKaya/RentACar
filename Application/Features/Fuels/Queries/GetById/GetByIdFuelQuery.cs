@@ -1,15 +1,15 @@
 using Application.Services.Repositories;
 using AutoMapper;
+using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Fuels.Queries.GetById;
 
-public sealed record GetByIdFuelQuery(Guid Id) : IRequest<GetByIdQueryResponse> 
+public sealed record GetByIdFuelQuery : IRequest<GetByIdFuelResponse> 
 {
+    public Guid Id { get; set; }
     
-    
-    
-    public class  GetByIdQueryHandler : IRequestHandler<GetByIdFuelQuery,GetByIdQueryResponse>
+    public class  GetByIdQueryHandler : IRequestHandler<GetByIdFuelQuery,GetByIdFuelResponse>
     {
 
         private readonly IFuelRepository _fuelRepository;
@@ -21,15 +21,15 @@ public sealed record GetByIdFuelQuery(Guid Id) : IRequest<GetByIdQueryResponse>
             _mapper = mapper;
         }
 
-        public async Task<GetByIdQueryResponse> Handle(GetByIdFuelQuery request, CancellationToken cancellationToken)
+        public async Task<GetByIdFuelResponse> Handle(GetByIdFuelQuery request, CancellationToken cancellationToken)
         {
-            var fuel = await _fuelRepository.GetAsync(predicate: x => x.Id == request.Id,
+            Fuel? fuel = await _fuelRepository.GetAsync(predicate: f => f.Id == request.Id, withDeleted:true,
                 cancellationToken: cancellationToken);
 
 
-            var fuelResponse = _mapper.Map<GetByIdQueryResponse>(fuel);
+            GetByIdFuelResponse response = _mapper.Map<GetByIdFuelResponse>(fuel);
 
-            return fuelResponse;
+            return response;
 
         }
     }

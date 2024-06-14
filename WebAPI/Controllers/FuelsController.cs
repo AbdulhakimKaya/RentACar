@@ -44,13 +44,12 @@ public class FuelsController : BaseController
         return Ok(response);
     }
     
-    [HttpGet("getbyid")]
-    public async Task<IActionResult> GetById([FromQuery] Guid id)
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
     {
-        GetByIdFuelQuery query = new(id);
-
-        var result = await Mediator.Send(query);
-        return Ok(result);
+        GetByIdFuelQuery getByIdFuelQuery = new() {Id = id};
+        GetByIdFuelResponse response = await Mediator!.Send(getByIdFuelQuery);
+        return Ok(response);
     }
     
     
@@ -63,7 +62,7 @@ public class FuelsController : BaseController
     }
 
     
-    [HttpDelete("{id}")]
+    [HttpDelete("delete/{id}")]
     public async Task<IActionResult> Delete([FromRoute] Guid id)
     {
         DeletedFuelResponse response = await Mediator!.Send(new DeleteFuelCommand() { Id = id });
