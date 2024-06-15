@@ -18,7 +18,7 @@ public class ColorConfiguration: IEntityTypeConfiguration<Color>
 
         builder.HasIndex(indexExpression: c => c.Name, name: "UK_Colors_Name").IsUnique();
 
-        builder.HasMany(c => c.Models);
+        builder.HasMany(c => c.Cars);
 
         builder.HasQueryFilter(c => !c.DeletedDate.HasValue);
     }

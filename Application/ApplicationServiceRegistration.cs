@@ -1,3 +1,4 @@
+using System.Data;
 using System.Reflection;
 using Core.Application.Pipelines.Caching;
 using Core.Application.Pipelines.Logging;
@@ -7,14 +8,17 @@ using Core.Application.Rules;
 using Core.CrossCuttingConcerns.SeriLog;
 using Core.CrossCuttingConcerns.SeriLog.Loggers;
 using FluentValidation;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application;
 
 public static class ApplicationServiceRegistration
 {
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration Configuration)
     {
+        services.AddTransient<IDbConnection>(provider => new SqlConnection(Configuration.GetConnectionString("DefaultConnection")));
 
         
         services.AddAutoMapper(Assembly.GetExecutingAssembly());

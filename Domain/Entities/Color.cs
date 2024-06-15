@@ -5,11 +5,11 @@ namespace Domain.Entities;
 public class Color: Entity<Guid>
 {
     public string Name { get; set; }
-    public virtual ICollection<Model> Models { get; set; }
+    public virtual ICollection<Car> Cars { get; set; }
 
     public Color()
     {
-        Models = new HashSet<Model>();
+        Cars = new HashSet<Car>();
     }
     
     public Color(Guid id, string name) : this()

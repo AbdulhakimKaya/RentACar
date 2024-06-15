@@ -1,7 +1,6 @@
 using Application.Features.Cars.Commands.Create;
-using Application.Features.Cars.Queries.GetList;
+using Application.Features.Cars.Queries.GetById;
 using Application.Features.Cars.Queries.GetListNoPaginate;
-using Core.Application.Requests;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
@@ -19,23 +18,18 @@ public class CarsController: BaseController
         var response = await Mediator.Send(createCarCommand);
         return Created("/", response);
     }
-
-    [HttpGet("paginate")]
-    public async Task<IActionResult> GetAll([FromQuery] PageRequest pageRequest)
-    {
-        
-        GetListCarQuery query = new()
-        {
-            PageRequest = pageRequest
-        };
-        var response = await Mediator.Send(query);
-        return Ok(response);
-    }
-
+    
     [HttpGet("getall")]
     public async Task<IActionResult> GetList()
     {
-        var query = await Mediator.Send(new GetListNoPaginateQuery());
+        var query = await Mediator.Send(new GetListNoPaginateCarQuery());
+        return Ok(query);
+    }
+    
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+    {
+        var query = await Mediator.Send(new GetByIdCarQuery() { Id = id });
         return Ok(query);
     }
 }

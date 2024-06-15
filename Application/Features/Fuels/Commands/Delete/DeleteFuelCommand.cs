@@ -29,7 +29,7 @@ public class DeleteFuelCommand: IRequest<DeletedFuelResponse>, ICacheRemoverRequ
             Fuel? fuel = await _fuelRepository.GetAsync(predicate: f => f.Id == request.Id,
                 cancellationToken: cancellationToken);
 
-            await _fuelRepository.DeleteAsync(fuel);
+            await _fuelRepository.DeleteAsync(fuel,permanent:true);
 
             DeletedFuelResponse response = _mapper.Map<DeletedFuelResponse>(fuel);
 

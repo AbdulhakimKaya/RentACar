@@ -26,7 +26,7 @@ public class DeleteModelCommand : IRequest<DeletedModelResponse>
 
             model = _mapper.Map(request, model);
 
-            await _modelRepository.DeleteAsync(model);
+            await _modelRepository.DeleteAsync(model, permanent: true);
 
             DeletedModelResponse response = _mapper.Map<DeletedModelResponse>(model);
 

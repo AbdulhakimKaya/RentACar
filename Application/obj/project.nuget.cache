@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "upc0Cu8w7816cLemloghPtLNsbe2DToRBuB4+vL6os8Q/VTcixS9k60GjvCrId4sdUK+wV/8QffGqMG7/AANUQ==",
+  "dgSpecHash": "cPTkGHtq4zbfYazuLrdFtdJRa5zLd4oYNUN/Yugp5EepRf2Mb8OpXc4p8oRfLTqR/1VetI/HtDNSLBz5l8XIZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abdul\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\abdul\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\abdul\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\abdul\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\abdul\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "C:\\Users\\abdul\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",

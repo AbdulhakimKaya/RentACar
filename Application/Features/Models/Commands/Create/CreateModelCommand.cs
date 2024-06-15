@@ -1,20 +1,24 @@
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Pipelines.Caching;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transaction;
 using MediatR;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Model = Domain.Entities.Model;
 
 namespace Application.Features.Models.Commands.Create;
 
-public class CreateModelCommand : IRequest<CreatedModelResponse>
+public class CreateModelCommand : IRequest<CreatedModelResponse>, ITransactionalRequest, ICacheRemoverRequest, ILoggableRequest
 {
     public Guid BrandId { get; set; }
     public Guid FuelId { get; set; }
-    public Guid ColorId { get; set; }
     public Guid TransmissionId { get; set; }
     public string Name { get; set; }
-    public decimal DailyPrice { get; set; }
-    public string ImageUrl { get; set; }
+
+    public string CacheKey => "";
+    public bool BypassCache => false;
+    public string? CacheGroupKey => "GetModels";
     
     public class CreateModelCommandHandler : IRequestHandler<CreateModelCommand, CreatedModelResponse>
     {

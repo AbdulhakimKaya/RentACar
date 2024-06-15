@@ -29,7 +29,7 @@ public class DeleteColorCommand: IRequest<DeletedColorResponse>, ICacheRemoverRe
             Color? color = await _colorRepository.GetAsync(predicate: c => c.Id == request.Id,
                 cancellationToken: cancellationToken);
 
-            await _colorRepository.DeleteAsync(color);
+            await _colorRepository.DeleteAsync(color,true);
 
             DeletedColorResponse response = _mapper.Map<DeletedColorResponse>(color);
 

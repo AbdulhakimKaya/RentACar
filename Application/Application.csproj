@@ -22,6 +22,7 @@
     <ItemGroup>
       <PackageReference Include="AutoMapper" Version="12.0.1" />
       <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+      <PackageReference Include="Dapper" Version="2.1.35" />
       <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
       <PackageReference Include="MediatR" Version="12.2.0" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
@@ -44,6 +45,9 @@
       </Reference>
       <Reference Include="Core.Security">
         <HintPath>..\..\corePackages\Core.Security\bin\Debug\net7.0\Core.Security.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Data.SqlClient">
+        <HintPath>..\WebAPI\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll</HintPath>
       </Reference>
     </ItemGroup>
 

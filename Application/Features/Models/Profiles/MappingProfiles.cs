@@ -3,6 +3,7 @@ using Application.Features.Models.Commands.Delete;
 using Application.Features.Models.Commands.Update;
 using Application.Features.Models.Queries.GetList;
 using Application.Features.Models.Queries.GetListByDynamic;
+using Application.Features.Models.Queries.GetListNoPaginate;
 using AutoMapper;
 using Core.Application.Responses;
 using Core.Persistence.Paging;
@@ -26,14 +27,18 @@ public class MappingProfiles : Profile
         CreateMap<Model, GetListModelListItemDto>()
             .ForMember(destinationMember: m => m.BrandName, memberOptions: opt => opt.MapFrom(m => m.Brand!.Name))
             .ForMember(destinationMember: m => m.FuelName, memberOptions: opt => opt.MapFrom(m => m.Fuel!.Name))
+            //.ForMember(destinationMember: m => m.ColorName, memberOptions: opt => opt.MapFrom(m => m.Color!.Name))
             .ForMember(destinationMember: m => m.TransmissionName, memberOptions: opt => opt.MapFrom(m => m.Transmission!.Name))
             .ReverseMap();
         
         CreateMap<Model, GetListByDynamicModelListItem>()
             .ForMember(destinationMember: m => m.BrandName, memberOptions: opt => opt.MapFrom(m => m.Brand!.Name))
             .ForMember(destinationMember: m => m.FuelName, memberOptions: opt => opt.MapFrom(m => m.Fuel!.Name))
+            //.ForMember(destinationMember: m => m.ColorName, memberOptions: opt => opt.MapFrom(m => m.Color!.Name))
             .ForMember(destinationMember: m => m.TransmissionName, memberOptions: opt => opt.MapFrom(m => m.Transmission!.Name))
             .ReverseMap();
+
+        CreateMap<Model, GetListNoPaginateModelListItemDto>().ReverseMap();
         
         
         CreateMap<Paginate<Model>, GetListResponse<GetListModelListItemDto>>().ReverseMap();

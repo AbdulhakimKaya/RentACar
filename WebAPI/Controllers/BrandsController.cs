@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Application.Features.Brands.Commands.Create;
 using Application.Features.Brands.Commands.Delete;
 using Application.Features.Brands.Commands.Update;
@@ -10,8 +6,6 @@ using Application.Features.Brands.Queries.GetList;
 using Application.Features.Brands.Queries.GetListNoPaginate;
 using Core.Application.Requests;
 using Core.Application.Responses;
-using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers

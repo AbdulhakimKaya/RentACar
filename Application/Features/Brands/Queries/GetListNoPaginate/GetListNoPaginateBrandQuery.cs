@@ -10,7 +10,7 @@ namespace Application.Features.Brands.Queries.GetListNoPaginate;
 public class GetListNoPaginateBrandQuery  : IRequest<List<GetListBrandListItemDto>> , ICacheableRequest
 {
     public string CacheKey => "GetListBrandQuery";
-    public bool BypassCache => false;
+    public bool BypassCache { get; }
     public string? CacheGroupKey => "GetBrands";
     public TimeSpan? SlidingExpiration { get; }
     

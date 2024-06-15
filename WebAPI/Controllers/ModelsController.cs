@@ -1,17 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Application.Features.Brands.Queries.GetList;
 using Application.Features.Models.Commands.Create;
 using Application.Features.Models.Commands.Delete;
 using Application.Features.Models.Commands.Update;
 using Application.Features.Models.Queries.GetList;
 using Application.Features.Models.Queries.GetListByDynamic;
+using Application.Features.Models.Queries.GetListNoPaginate;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using Core.Persistence.Dynamic;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -35,13 +30,21 @@ namespace WebAPI.Controllers
             return Ok(response);
         }
         
-        [HttpGet]
+        [HttpGet("paginate")]
         public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
             GetListModelQuery getListModelQuery = new() { PageRequest = pageRequest};
             GetListResponse<GetListModelListItemDto> response = await Mediator!.Send(getListModelQuery);
             return Ok(response);
         }
+        
+        [HttpGet("getall")]
+        public async Task<IActionResult> GetList()
+        {
+            var response = await Mediator.Send(new GetListNoPaginateModelQuery());
+            return Ok(response);
+        }
+
         
         [HttpPost("GetList/ByDynamic")]
         public async Task<IActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest, [FromBody] DynamicQuery dynamicQuery = null)

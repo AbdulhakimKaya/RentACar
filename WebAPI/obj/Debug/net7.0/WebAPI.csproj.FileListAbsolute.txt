@@ -293,3 +293,4 @@ C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\D
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Dapper.dll

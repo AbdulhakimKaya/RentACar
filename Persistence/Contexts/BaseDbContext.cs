@@ -23,7 +23,7 @@ public class BaseDbContext : DbContext
     public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     public DbSet<EmailAuthenticator> EmailAuthenticators { get; set; }
     public DbSet<Image> Images { get; set; }
-    
+    public DbSet<Slider> Sliders { get; set; }
     
     
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)

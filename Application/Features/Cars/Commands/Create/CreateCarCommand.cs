@@ -16,12 +16,16 @@ public class CreateCarCommand  : IRequest<CreateCarCommandResponse> , ITransacti
     public int Kilometer { get; set; }
     
     public short ModelYear { get; set; }
-    
+
+    public Guid ColorId { get; set; }
     public string Plate { get; set; }
     
     public short MinFIndexScore { get; set; }
     
     public CarState CarState { get; set; }
+
+    public decimal DailyPrice { get; set; }
+    
     public string? CacheKey => "";
     public bool BypassCache => false;
     public string? CacheGroupKey => "GetCars";
@@ -49,6 +53,8 @@ public class CreateCarCommand  : IRequest<CreateCarCommandResponse> , ITransacti
             
             
             var car = _mapper.Map<Car>(request);
+
+            car.Id = new Guid();
     
             var createdCar = await _carRepository.AddAsync(car);
     

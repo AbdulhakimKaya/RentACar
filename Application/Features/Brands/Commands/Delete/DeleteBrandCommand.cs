@@ -30,7 +30,7 @@ public class DeleteBrandCommand : IRequest<DeletedBrandResponse>, ICacheRemoverR
             Brand? brand = await _brandRepository.GetAsync(predicate: b => b.Id == request.Id,
                 cancellationToken: cancellationToken);
 
-            await _brandRepository.DeleteAsync(brand);
+            await _brandRepository.DeleteAsync(brand,true);
 
             DeletedBrandResponse response = _mapper.Map<DeletedBrandResponse>(brand);
 

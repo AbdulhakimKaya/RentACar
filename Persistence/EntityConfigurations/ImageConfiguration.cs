@@ -17,6 +17,6 @@ public class ImageConfiguration : IEntityTypeConfiguration<Image>
         builder.Property(m => m.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(m => m.DeletedDate).HasColumnName("DeletedDate");
         
-        builder.HasOne(x => x.Car);
+        builder.HasOne(x => x.Car).WithMany(c => c.Images).HasForeignKey(x => x.CarId);
     }
 }

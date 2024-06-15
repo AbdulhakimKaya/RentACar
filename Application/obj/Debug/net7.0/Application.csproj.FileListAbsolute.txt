@@ -22,3 +22,5 @@ C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.CrossCuttingConcerns.pdb
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.Security.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Core.Security.pdb
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\Application\bin\Debug\net7.0\System.Runtime.Caching.dll

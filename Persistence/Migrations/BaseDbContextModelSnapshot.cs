@@ -309,8 +309,8 @@ namespace Persistence.Migrations
                             Email = "admin@admin.com",
                             FirstName = "Admin",
                             LastName = "NArchitecture",
-                            PasswordHash = new byte[] { 170, 74, 27, 226, 6, 138, 214, 241, 126, 102, 118, 224, 223, 84, 46, 181, 150, 98, 79, 132, 216, 50, 93, 15, 112, 218, 223, 181, 255, 194, 165, 43, 210, 178, 131, 186, 175, 193, 44, 60, 127, 211, 124, 147, 17, 62, 235, 221, 51, 28, 188, 124, 239, 3, 41, 34, 248, 215, 233, 109, 86, 14, 39, 183 },
-                            PasswordSalt = new byte[] { 64, 19, 167, 145, 231, 141, 235, 211, 19, 57, 74, 1, 248, 76, 174, 49, 56, 230, 2, 209, 125, 40, 28, 109, 140, 103, 172, 132, 192, 137, 83, 80, 56, 129, 89, 39, 114, 160, 181, 161, 29, 244, 104, 62, 122, 10, 93, 88, 44, 249, 111, 57, 200, 65, 96, 139, 249, 88, 146, 35, 33, 48, 4, 224, 20, 153, 255, 189, 250, 234, 66, 67, 150, 187, 253, 85, 60, 132, 228, 203, 137, 60, 199, 126, 206, 217, 207, 151, 242, 17, 83, 191, 227, 60, 104, 149, 172, 53, 40, 241, 150, 130, 210, 190, 253, 212, 86, 86, 203, 21, 48, 90, 75, 208, 16, 57, 9, 211, 226, 23, 47, 193, 34, 240, 180, 54, 254, 162 },
+                            PasswordHash = new byte[] { 139, 111, 12, 67, 128, 205, 140, 65, 126, 23, 42, 101, 108, 153, 203, 159, 68, 218, 19, 171, 67, 60, 187, 214, 96, 53, 249, 196, 79, 53, 61, 119, 80, 207, 25, 69, 252, 74, 94, 126, 240, 102, 143, 44, 173, 11, 134, 187, 39, 20, 128, 237, 42, 228, 116, 142, 212, 108, 182, 128, 3, 160, 240, 28 },
+                            PasswordSalt = new byte[] { 244, 119, 188, 205, 188, 71, 165, 243, 150, 210, 195, 48, 223, 204, 44, 18, 162, 243, 74, 119, 168, 183, 187, 144, 10, 8, 41, 244, 8, 20, 76, 181, 59, 251, 225, 127, 207, 180, 228, 122, 6, 183, 160, 178, 53, 100, 195, 214, 112, 84, 114, 188, 205, 108, 96, 168, 212, 75, 130, 111, 4, 177, 24, 2, 9, 134, 68, 102, 137, 9, 230, 52, 71, 158, 225, 193, 71, 20, 99, 30, 0, 233, 155, 86, 126, 45, 249, 133, 29, 240, 155, 148, 19, 246, 0, 216, 149, 213, 199, 250, 36, 204, 80, 108, 175, 255, 31, 67, 143, 137, 51, 230, 120, 91, 137, 0, 200, 87, 99, 105, 194, 50, 159, 192, 214, 125, 47, 55 },
                             Status = true
                         });
                 });
@@ -405,9 +405,16 @@ namespace Persistence.Migrations
                         .HasColumnType("int")
                         .HasColumnName("State");
 
+                    b.Property<Guid>("ColorId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreatedDate");
+
+                    b.Property<decimal>("DailyPrice")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("DailyPrice");
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2")
@@ -439,6 +446,8 @@ namespace Persistence.Migrations
                         .HasColumnName("UpdatedDate");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ColorId");
 
                     b.HasIndex("ModelId");
 
@@ -555,16 +564,9 @@ namespace Persistence.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("BrandId");
 
-                    b.Property<Guid>("ColorId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreatedDate");
-
-                    b.Property<decimal>("DailyPrice")
-                        .HasColumnType("decimal(18,2)")
-                        .HasColumnName("DailyPrice");
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2")
@@ -573,11 +575,6 @@ namespace Persistence.Migrations
                     b.Property<Guid>("FuelId")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("FuelId");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("ImageUrl");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -596,8 +593,6 @@ namespace Persistence.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.HasIndex("ColorId");
-
                     b.HasIndex("FuelId");
 
                     b.HasIndex("TransmissionId");
@@ -606,6 +601,34 @@ namespace Persistence.Migrations
                         .IsUnique();
 
                     b.ToTable("Models", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.Slider", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sliders");
                 });
 
             modelBuilder.Entity("Domain.Entities.Transmission", b =>
@@ -694,11 +717,19 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Car", b =>
                 {
+                    b.HasOne("Domain.Entities.Color", "Color")
+                        .WithMany("Cars")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Domain.Entities.Model", "Model")
                         .WithMany("Cars")
                         .HasForeignKey("ModelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Color");
 
                     b.Navigation("Model");
                 });
@@ -722,12 +753,6 @@ namespace Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Color", "Color")
-                        .WithMany("Models")
-                        .HasForeignKey("ColorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Entities.Fuel", "Fuel")
                         .WithMany("Models")
                         .HasForeignKey("FuelId")
@@ -741,8 +766,6 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Brand");
-
-                    b.Navigation("Color");
 
                     b.Navigation("Fuel");
 
@@ -777,7 +800,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Color", b =>
                 {
-                    b.Navigation("Models");
+                    b.Navigation("Cars");
                 });
 
             modelBuilder.Entity("Domain.Entities.Fuel", b =>
