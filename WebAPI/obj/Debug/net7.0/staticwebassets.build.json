@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8kfe1+O5pQOuCZj/IQvstwqHIwZ4pQ9tEiw9oe31k1M=",
+  "Hash": "/ev0bkLtx79DsupVo5GFh7EEPhf9MT9/mlOdGXO49nc=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -16,6 +16,44 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\images\\0c0c8847-e8d9-4945-8e36-ab20a5a753ff.png",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "images/0c0c8847-e8d9-4945-8e36-ab20a5a753ff.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\0c0c8847-e8d9-4945-8e36-ab20a5a753ff.png"
+    },
+    {
+      "Identity": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\images\\30809b7f-fa81-41b8-a1a3-e98899427460.avif",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "images/30809b7f-fa81-41b8-a1a3-e98899427460.avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\30809b7f-fa81-41b8-a1a3-e98899427460.avif"
+    },
     {
       "Identity": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\images\\3ab68d16-e533-4161-bdd9-bf2913a4904a.png",
       "SourceId": "WebAPI",
@@ -93,6 +131,25 @@
       "OriginalItemSpec": "wwwroot\\images\\6a1852cc-c34a-4803-a3d1-421fdf7dde0a.png"
     },
     {
+      "Identity": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\images\\7b9a4157-67ff-427f-b6e6-42f7b3cd3e3b.png",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "images/7b9a4157-67ff-427f-b6e6-42f7b3cd3e3b.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\7b9a4157-67ff-427f-b6e6-42f7b3cd3e3b.png"
+    },
+    {
       "Identity": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\images\\8390243c-4eef-47f6-a47d-d91de8169bed.png",
       "SourceId": "WebAPI",
       "SourceType": "Discovered",
@@ -131,6 +188,25 @@
       "OriginalItemSpec": "wwwroot\\images\\95c428fb-1676-4ab7-836d-b67ce057cfb2.png"
     },
     {
+      "Identity": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\images\\a15eef57-36fc-468e-9e2b-906a9fd941ff.png",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "images/a15eef57-36fc-468e-9e2b-906a9fd941ff.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\a15eef57-36fc-468e-9e2b-906a9fd941ff.png"
+    },
+    {
       "Identity": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\images\\be05c411-15f8-4035-8b31-ce99ac03d340.png",
       "SourceId": "WebAPI",
       "SourceType": "Discovered",
@@ -167,6 +243,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\d25229fa-2509-4069-82f6-71f95b1b1dc2.png"
+    },
+    {
+      "Identity": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\images\\fe149bd3-8b83-426c-a062-e7cf8c714137.png",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\abdul\\RiderProjects\\CSharpnArchitectureCourse\\src\\rentACar\\WebAPI\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "images/fe149bd3-8b83-426c-a062-e7cf8c714137.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fe149bd3-8b83-426c-a062-e7cf8c714137.png"
     }
   ]
 }
