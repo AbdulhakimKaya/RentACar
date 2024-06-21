@@ -12,6 +12,7 @@ public class GetListNoPaginateCarItemDto
     public string FuelName { get; init; }
     public decimal DailyPrice { get; init; }
     public string Plate { get; init; }
+    public short ModelYear { get; init; }
     public short MinFIndexScore { get; init; }
     public CarState CarState { get; init; }
     public List<string> ImagesRoot { get; init; }
