@@ -1,6 +1,8 @@
 using Application.Features.Models.Commands.Create;
 using Application.Features.Models.Commands.Delete;
 using Application.Features.Models.Commands.Update;
+using Application.Features.Models.Queries.GetById.GetById;
+using Application.Features.Models.Queries.GetById.GetById.GetById;
 using Application.Features.Models.Queries.GetList;
 using Application.Features.Models.Queries.GetListByDynamic;
 using Application.Features.Models.Queries.GetListNoPaginate;
@@ -44,7 +46,14 @@ namespace WebAPI.Controllers
             var response = await Mediator.Send(new GetListNoPaginateModelQuery());
             return Ok(response);
         }
-
+        
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById([FromRoute] Guid id)
+        {
+            GetByIdModelQuery getByIdModelQuery = new() { Id = id};
+            GetByIdModelResponse response = await Mediator!.Send(getByIdModelQuery);
+            return Ok(response);
+        }
         
         [HttpPost("GetList/ByDynamic")]
         public async Task<IActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest, [FromBody] DynamicQuery dynamicQuery = null)
@@ -54,7 +63,7 @@ namespace WebAPI.Controllers
             return Ok(response);
         }
         
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             DeletedModelResponse response = await Mediator!.Send(new DeleteModelCommand { Id = id });

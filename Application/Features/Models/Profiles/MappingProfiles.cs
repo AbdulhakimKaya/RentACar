@@ -1,6 +1,7 @@
 using Application.Features.Models.Commands.Create;
 using Application.Features.Models.Commands.Delete;
 using Application.Features.Models.Commands.Update;
+using Application.Features.Models.Queries.GetById.GetById;
 using Application.Features.Models.Queries.GetList;
 using Application.Features.Models.Queries.GetListByDynamic;
 using Application.Features.Models.Queries.GetListNoPaginate;
@@ -39,7 +40,12 @@ public class MappingProfiles : Profile
             .ReverseMap();
 
         CreateMap<Model, GetListNoPaginateModelListItemDto>().ReverseMap();
-        
+
+        CreateMap<Model, GetByIdModelResponse>()
+            .ForMember(m => m.BrandId, opt => opt.MapFrom(x => x.Brand!.Id))
+            .ForMember(m => m.FuelId, opt => opt.MapFrom(x => x.Fuel!.Id))
+            .ForMember(m => m.TransmissionId, opt => opt.MapFrom(x => x.Transmission!.Id))
+            .ReverseMap();
         
         CreateMap<Paginate<Model>, GetListResponse<GetListModelListItemDto>>().ReverseMap();
         CreateMap<Paginate<Model>, GetListResponse<GetListByDynamicModelListItem>>().ReverseMap();

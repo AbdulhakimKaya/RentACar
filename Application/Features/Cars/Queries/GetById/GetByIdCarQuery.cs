@@ -9,11 +9,8 @@ public class GetByIdCarQuery : IRequest<GetByIdCarQueryItemDto>
 {
     public Guid Id { get; set; }
     
-    
-    
     public class GetByIdCarQueryHandler : IRequestHandler<GetByIdCarQuery,GetByIdCarQueryItemDto>
     {
-
         private readonly ICarRepository _carRepository;
         private readonly IMapper _mapper;
 
@@ -31,17 +28,14 @@ public class GetByIdCarQuery : IRequest<GetByIdCarQueryItemDto>
                 .Include(c => c.Model.Transmission)
                 .Include(c => c.Model.Fuel)
                 .Include(c => c.Model.Brand)
-                .Include(c=>c.Color)
+                .Include(c => c.Color)
                 .AsNoTracking()
                 .SingleOrDefaultAsync(x=> x.Id==request.Id, cancellationToken);
-
-
+            
             var response = _mapper.Map<GetByIdCarQueryItemDto>(car);
 
             return response;
         }
-        
-        
     }
     
     

@@ -1,18 +1,22 @@
 using Application.Features.Brands.Commands.Update;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Pipelines.Caching;
 using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Models.Commands.Update;
 
-public class UpdateModelCommand : IRequest<UpdatedModelResponse>
+public class UpdateModelCommand : IRequest<UpdatedModelResponse>, ICacheRemoverRequest
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
     public Guid BrandId { get; set; }
     public Guid FuelId { get; set; }
     public Guid TransmissionId { get; set; }
+    public string CacheKey => "";
+    public bool BypassCache => false;
+    public string? CacheGroupKey => "GetModels";
     
     public class UpdateModelCommandHandler : IRequestHandler<UpdateModelCommand, UpdatedModelResponse>
     {
