@@ -52,8 +52,6 @@ public class UpdateCarCommand : IRequest<UpdateCarResponse>,ITransactionalReques
         public async Task<UpdateCarResponse> Handle(UpdateCarCommand request, CancellationToken cancellationToken)
         {
             await _carBusiness.CarIsPresent(request.Id);
-            
-            await _carBusiness.CarPlateMustBeUnique(request.Plate, cancellationToken);
 
             var car = _mapper.Map<Car>(request);
 

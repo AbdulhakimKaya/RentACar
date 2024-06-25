@@ -15,7 +15,7 @@ public class UpdateTransmissionCommand : IRequest<UpdatedTransmissionResponse>, 
 
     public string CacheKey => "";
     public bool BypassCache => false;
-    public string? CacheGroupKey => "GetTransmissions";
+    public string? CacheGroupKey => "GetTransmissions,GetModels,GetCars";
     
     public class UpdateTransmissionCommandHandler : IRequestHandler<UpdateTransmissionCommand, UpdatedTransmissionResponse>
     {

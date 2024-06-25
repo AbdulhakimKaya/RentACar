@@ -13,7 +13,7 @@ public sealed record CreateFuelCommand(string Name) : IRequest<CreateFuelRespons
 {
     public string? CacheKey => "";
     public bool BypassCache => false;
-    public string? CacheGroupKey => "GetFuels";
+    public string? CacheGroupKey => "GetFuels,GetModels,GetCars";
     
     
     

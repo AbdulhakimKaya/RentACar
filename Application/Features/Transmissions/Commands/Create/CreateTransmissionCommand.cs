@@ -16,7 +16,7 @@ public class CreateTransmissionCommand: IRequest<CreatedTransmissionResponse>, I
     public string Name { get; set; }
     public string CacheKey => "";
     public bool BypassCache => false;
-    public string? CacheGroupKey => "GetTransmissions";
+    public string? CacheGroupKey => "GetTransmissions,GetModels,GetCars";
     
     public class CreateTransmissionCommandHandler : IRequestHandler<CreateTransmissionCommand, CreatedTransmissionResponse>
     {

@@ -14,7 +14,7 @@ public class DeleteTransmissionCommand : IRequest<DeletedTransmissionResponse>, 
 
     public string CacheKey => "";
     public bool BypassCache => false;
-    public string? CacheGroupKey => "GetTransmissions";
+    public string? CacheGroupKey => "GetTransmissions,GetModels,GetCars";
     
     public class DeleteTransmissionCommandHandler : IRequestHandler<DeleteTransmissionCommand, DeletedTransmissionResponse>
     {

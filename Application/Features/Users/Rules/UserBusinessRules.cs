@@ -50,4 +50,10 @@ public class UserBusinessRules : BaseBusinessRules
         if (doesExists)
             throw new BusinessException(AuthMessages.UserMailAlreadyExists);
     }
+    public async Task UserIdShouldNotBeExistsWhenSelected(int id)
+    {
+        bool doesExist = await _userRepository.AnyAsync(predicate: u => u.Id == id, enableTracking: false);
+        if (!doesExist)
+            throw new BusinessException(AuthMessages.UserDontExists);
+    }
 }

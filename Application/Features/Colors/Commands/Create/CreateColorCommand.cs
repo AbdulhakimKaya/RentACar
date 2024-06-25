@@ -15,7 +15,7 @@ public class CreateColorCommand : IRequest<CreatedColorResponse>, ITransactional
     public string Name { get; set; }
     public string CacheKey => "";
     public bool BypassCache => false;
-    public string? CacheGroupKey => "GetColors";
+    public string? CacheGroupKey => "GetColors,GetModels,GetCars";
     
     public class CreateColorCommandHandler : IRequestHandler<CreateColorCommand, CreatedColorResponse>
     {

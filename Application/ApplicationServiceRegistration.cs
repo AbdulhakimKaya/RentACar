@@ -1,5 +1,8 @@
 using System.Data;
+using System.Net;
 using System.Reflection;
+using Application.Services.AuthServices;
+using Application.Services.UserServices;
 using Core.Application.Pipelines.Caching;
 using Core.Application.Pipelines.Logging;
 using Core.Application.Pipelines.Transaction;
@@ -8,6 +11,7 @@ using Core.Application.Rules;
 using Core.CrossCuttingConcerns.SeriLog;
 using Core.CrossCuttingConcerns.SeriLog.Loggers;
 using FluentValidation;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +23,8 @@ public static class ApplicationServiceRegistration
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration Configuration)
     {
         services.AddTransient<IDbConnection>(provider => new SqlConnection(Configuration.GetConnectionString("DefaultConnection")));
-
+        services.AddScoped<IAuthService, AuthManager>();
+        services.AddScoped<IUserService, UserManager>();
         
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         

@@ -14,7 +14,7 @@ public class UpdateColorCommand: IRequest<UpdatedColorResponse>, ICacheRemoverRe
     public string Name { get; set; }
     public string CacheKey => "";
     public bool BypassCache => false;
-    public string? CacheGroupKey => "GetColors";
+    public string? CacheGroupKey => "GetColors,GetModels,GetCars";
     
     public class UpdateColorCommandHandler : IRequestHandler<UpdateColorCommand, UpdatedColorResponse>
     {

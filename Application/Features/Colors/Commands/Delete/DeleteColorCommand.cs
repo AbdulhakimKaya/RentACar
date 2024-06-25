@@ -13,7 +13,7 @@ public class DeleteColorCommand: IRequest<DeletedColorResponse>, ICacheRemoverRe
     public Guid Id { get; set; }
     public string CacheKey => "";
     public bool BypassCache => false;
-    public string? CacheGroupKey => "GetColors";
+    public string? CacheGroupKey => "GetColors,GetModels,GetCars";
     
     public class DeleteColorCommandHandler : IRequestHandler<DeleteColorCommand, DeletedColorResponse>
     {

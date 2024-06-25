@@ -13,7 +13,7 @@ public class DeleteFuelCommand: IRequest<DeletedFuelResponse>, ICacheRemoverRequ
     public Guid Id { get; set; }
     public string? CacheKey => "";
     public bool BypassCache => false;
-    public string? CacheGroupKey => "GetFuels";
+    public string? CacheGroupKey => "GetFuels,GetModels,GetCars";
     
     public class DeleteFuelCommandHandler : IRequestHandler<DeleteFuelCommand, DeletedFuelResponse>
     {
