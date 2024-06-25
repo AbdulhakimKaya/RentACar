@@ -1,3 +1,4 @@
+using Application.Features.Brands.Queries.GetListRandom;
 using Application.Features.Cars.Commands.Create;
 using Application.Features.Cars.Queries.GetById;
 using Application.Features.Cars.Queries.GetListNoPaginate;
@@ -32,4 +33,12 @@ public class CarsController: BaseController
         var query = await Mediator.Send(new GetByIdCarQuery() { Id = id });
         return Ok(query);
     }
+
+    [HttpGet("random")]
+    public async Task<IActionResult> GetAllRandom()
+    {
+        var response = await Mediator.Send(new GetListRandomCarsQuery());
+        return Ok(response);
+    }
+    
 }

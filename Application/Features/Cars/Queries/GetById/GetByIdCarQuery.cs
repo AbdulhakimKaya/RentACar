@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Cars.Queries.GetById;
 
-public class GetByIdCarQuery : IRequest<GetByIdCarQueryItemDto>
+public class GetByIdCarQuery : IRequest<GetByIdCarResponse>
 {
     public Guid Id { get; set; }
     
-    public class GetByIdCarQueryHandler : IRequestHandler<GetByIdCarQuery,GetByIdCarQueryItemDto>
+    public class GetByIdCarQueryHandler : IRequestHandler<GetByIdCarQuery,GetByIdCarResponse>
     {
         private readonly ICarRepository _carRepository;
         private readonly IMapper _mapper;
@@ -20,7 +20,7 @@ public class GetByIdCarQuery : IRequest<GetByIdCarQueryItemDto>
             _mapper = mapper;
         }
 
-        public async Task<GetByIdCarQueryItemDto> Handle(GetByIdCarQuery request, CancellationToken cancellationToken)
+        public async Task<GetByIdCarResponse> Handle(GetByIdCarQuery request, CancellationToken cancellationToken)
         {
             var car = await _carRepository.Query()
                 .Include(c => c.Images)
@@ -32,7 +32,7 @@ public class GetByIdCarQuery : IRequest<GetByIdCarQueryItemDto>
                 .AsNoTracking()
                 .SingleOrDefaultAsync(x=> x.Id==request.Id, cancellationToken);
             
-            var response = _mapper.Map<GetByIdCarQueryItemDto>(car);
+            var response = _mapper.Map<GetByIdCarResponse>(car);
 
             return response;
         }

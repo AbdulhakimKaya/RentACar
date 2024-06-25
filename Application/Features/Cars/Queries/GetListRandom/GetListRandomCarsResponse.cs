@@ -1,8 +1,8 @@
 using Domain.Enums;
 
-namespace Application.Features.Cars.Queries.GetById;
+namespace Application.Features.Brands.Queries.GetListRandom;
 
-public sealed record GetByIdCarQueryItemDto
+public class GetListRandomCarsResponse
 {
     public Guid Id { get; set; }
     public string ModelName { get; init; }
@@ -11,8 +11,10 @@ public sealed record GetByIdCarQueryItemDto
     public string FuelName { get; init; }
     public decimal DailyPrice { get; init; }
     public string Plate { get; init; }
+    public short ModelYear { get; init; }
     public short MinFIndexScore { get; init; }
     public CarState CarState { get; init; }
     public List<string> ImagesRoot { get; init; }
+    
     public string ColorName { get; set; }
 }

@@ -1,5 +1,6 @@
 using Application.Features.Transmissions.Commands.Create;
 using Application.Features.Transmissions.Commands.Delete;
+using Application.Features.Transmissions.Commands.Update;
 using Application.Features.Transmissions.Queries.GetById;
 using Application.Features.Transmissions.Queries.GetListNoPaginate;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,14 @@ public class TransmissionsController: BaseController
     public async Task<IActionResult> Add([FromBody] CreateTransmissionCommand createTransmissionCommand)
     {
         CreatedTransmissionResponse response = await Mediator!.Send(createTransmissionCommand);
+        return Ok(response);
+    }
+    
+    [HttpPut]
+    public async Task<IActionResult> Update([FromBody] UpdateTransmissionCommand updateTransmissionCommand)
+    {
+        UpdatedTransmissionResponse response = await Mediator!.Send(updateTransmissionCommand);
+
         return Ok(response);
     }
     

@@ -1,3 +1,4 @@
+using Application.Features.Brands.Queries.GetListRandom;
 using Application.Features.Cars.Commands.Create;
 using Application.Features.Cars.Queries.GetById;
 using Application.Features.Cars.Queries.GetListNoPaginate;
@@ -25,12 +26,23 @@ public class CarMapper : Profile
             .ReverseMap();
         
         
-        CreateMap<Car, GetByIdCarQueryItemDto>()
+        CreateMap<Car, GetByIdCarResponse>()
+            .ForMember(dest => dest.ImagesRoot, opt => opt.MapFrom(src => src.Images.Select(i => i.Root).ToList()))
+            .ForMember(d => d.BrandName, opt => opt.MapFrom(s=> s.Model.Brand.Name))
+            .ForMember(d => d.FuelName, opt => opt.MapFrom(s=> s.Model.Fuel.Name))
+            .ForMember(d => d.TransmissionName, opt => opt.MapFrom(s=> s.Model.Transmission.Name))
+            .ForMember(d=>d.ColorId, opt => opt.MapFrom(c=>c.Color.Id))
+            .ReverseMap();
+        
+        
+        CreateMap<Car,GetListRandomCarsResponse>()
             .ForMember(dest => dest.ImagesRoot, opt => opt.MapFrom(src => src.Images.Select(i => i.Root).ToList()))
             .ForMember(d => d.BrandName, opt => opt.MapFrom(s=> s.Model.Brand.Name))
             .ForMember(d => d.FuelName, opt => opt.MapFrom(s=> s.Model.Fuel.Name))
             .ForMember(d => d.TransmissionName, opt => opt.MapFrom(s=> s.Model.Transmission.Name))
             .ForMember(d=>d.ColorName, opt => opt.MapFrom(c=>c.Color.Name))
             .ReverseMap();
+        
+        
     }
 }
