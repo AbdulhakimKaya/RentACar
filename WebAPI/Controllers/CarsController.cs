@@ -1,5 +1,7 @@
 using Application.Features.Brands.Queries.GetListRandom;
 using Application.Features.Cars.Commands.Create;
+using Application.Features.Cars.Commands.Delete;
+using Application.Features.Cars.Commands.Update;
 using Application.Features.Cars.Queries.GetById;
 using Application.Features.Cars.Queries.GetListNoPaginate;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +41,24 @@ public class CarsController: BaseController
     {
         var response = await Mediator.Send(new GetListRandomCarsQuery());
         return Ok(response);
+    }
+
+    [HttpPut("update")]
+    public async Task<IActionResult> Update([FromBody] UpdateCarCommand updateCarCommand)
+    {
+        var response = await Mediator.Send(updateCarCommand);
+
+        return Ok(response);
+    }
+
+    [HttpDelete("delete")]
+    public async Task<IActionResult> Delete([FromQuery] Guid id)
+    {
+        DeleteCarCommand command = new DeleteCarCommand() { Id = id };
+        var response = await Mediator.Send(command);
+        return Ok(response);
+
+
     }
     
 }

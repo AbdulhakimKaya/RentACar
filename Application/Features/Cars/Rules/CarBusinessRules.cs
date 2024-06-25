@@ -24,4 +24,14 @@ public class CarBusinessRules  : BaseBusinessRules
             throw new BusinessException(CarMessages.CarPlateMustBeUniqueMessage);
         }
     }
+
+    public async Task CarIsPresent(Guid id)
+    {
+        var count = await _carRepository.AnyAsync(x => x.Id.Equals(id));
+        if (count is false)
+            throw new BusinessException();
+
+    }
+    
+    
 }

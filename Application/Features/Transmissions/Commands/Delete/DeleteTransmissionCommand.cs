@@ -1,12 +1,14 @@
 using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Pipelines.Caching;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transaction;
 using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Transmissions.Commands.Delete;
 
-public class DeleteTransmissionCommand : IRequest<DeletedTransmissionResponse>, ICacheRemoverRequest
+public class DeleteTransmissionCommand : IRequest<DeletedTransmissionResponse>, ICacheRemoverRequest, ITransactionalRequest, ILoggableRequest
 {
     public Guid Id { get; set; }
 

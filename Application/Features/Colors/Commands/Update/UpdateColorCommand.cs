@@ -1,12 +1,14 @@
 using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Pipelines.Caching;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transaction;
 using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Colors.Commands.Update;
 
-public class UpdateColorCommand: IRequest<UpdatedColorResponse>, ICacheRemoverRequest
+public class UpdateColorCommand: IRequest<UpdatedColorResponse>, ICacheRemoverRequest , ILoggableRequest, ITransactionalRequest
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

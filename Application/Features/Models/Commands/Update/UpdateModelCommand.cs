@@ -2,12 +2,14 @@ using Application.Features.Brands.Commands.Update;
 using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Pipelines.Caching;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transaction;
 using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Models.Commands.Update;
 
-public class UpdateModelCommand : IRequest<UpdatedModelResponse>, ICacheRemoverRequest
+public class UpdateModelCommand : IRequest<UpdatedModelResponse>, ICacheRemoverRequest, ILoggableRequest,ITransactionalRequest
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

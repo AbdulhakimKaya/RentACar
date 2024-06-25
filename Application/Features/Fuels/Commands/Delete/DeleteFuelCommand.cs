@@ -1,12 +1,14 @@
 using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Pipelines.Caching;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transaction;
 using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Fuels.Commands.Delete;
 
-public class DeleteFuelCommand: IRequest<DeletedFuelResponse>, ICacheRemoverRequest
+public class DeleteFuelCommand: IRequest<DeletedFuelResponse>, ICacheRemoverRequest, ITransactionalRequest, ILoggableRequest
 {
     public Guid Id { get; set; }
     public string? CacheKey => "";

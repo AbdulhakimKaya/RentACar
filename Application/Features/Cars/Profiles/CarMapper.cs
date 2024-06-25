@@ -1,5 +1,7 @@
 using Application.Features.Brands.Queries.GetListRandom;
 using Application.Features.Cars.Commands.Create;
+using Application.Features.Cars.Commands.Delete;
+using Application.Features.Cars.Commands.Update;
 using Application.Features.Cars.Queries.GetById;
 using Application.Features.Cars.Queries.GetListNoPaginate;
 using AutoMapper;
@@ -42,7 +44,12 @@ public class CarMapper : Profile
             .ForMember(d => d.TransmissionName, opt => opt.MapFrom(s=> s.Model.Transmission.Name))
             .ForMember(d=>d.ColorName, opt => opt.MapFrom(c=>c.Color.Name))
             .ReverseMap();
-        
-        
+
+
+        CreateMap<Car, DeletedCarResponse>().ReverseMap();
+
+        CreateMap<UpdateCarCommand, Car>();
+        CreateMap<Car, UpdateCarResponse>();
+
     }
 }

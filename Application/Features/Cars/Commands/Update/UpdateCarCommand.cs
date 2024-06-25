@@ -8,10 +8,12 @@ using Domain.Entities;
 using Domain.Enums;
 using MediatR;
 
-namespace Application.Features.Cars.Commands.Create;
+namespace Application.Features.Cars.Commands.Update;
 
-public class CreateCarCommand  : IRequest<CreateCarCommandResponse> , ITransactionalRequest, ICacheRemoverRequest , ILoggableRequest
+public class UpdateCarCommand : IRequest<UpdateCarResponse>,ITransactionalRequest, ICacheRemoverRequest , ILoggableRequest
 {
+
+    public Guid Id { get; set; }
     public Guid ModelId { get; set; }
     
     public int Kilometer { get; set; }
@@ -33,38 +35,34 @@ public class CreateCarCommand  : IRequest<CreateCarCommandResponse> , ITransacti
     
     
     
-    public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand,CreateCarCommandResponse>
+    public class UpdateCarCommandHandler : IRequestHandler<UpdateCarCommand,UpdateCarResponse>
     {
+
         private readonly ICarRepository _carRepository;
         private readonly IMapper _mapper;
-        private readonly CarBusinessRules _rules;
-    
-        public CreateCarCommandHandler(ICarRepository carRepository, IMapper mapper, CarBusinessRules rules)
+        private readonly CarBusinessRules _carBusiness;
+
+        public UpdateCarCommandHandler(ICarRepository carRepository, IMapper mapper, CarBusinessRules carBusiness)
         {
             _carRepository = carRepository;
             _mapper = mapper;
-            _rules = rules;
+            _carBusiness = carBusiness;
         }
-    
-    
-        public async Task<CreateCarCommandResponse> Handle(CreateCarCommand request, CancellationToken cancellationToken)
+        
+        public async Task<UpdateCarResponse> Handle(UpdateCarCommand request, CancellationToken cancellationToken)
         {
-    
-            await _rules.CarPlateMustBeUnique(request.Plate, cancellationToken);
+            await _carBusiness.CarIsPresent(request.Id);
             
-            
+            await _carBusiness.CarPlateMustBeUnique(request.Plate, cancellationToken);
+
             var car = _mapper.Map<Car>(request);
 
-            car.Id = new Guid();
-    
-            var createdCar = await _carRepository.AddAsync(car);
-    
-            var response = _mapper.Map<CreateCarCommandResponse>(createdCar);
-    
+            var updated = await _carRepository.UpdateAsync(car);
+
+            var response = _mapper.Map<UpdateCarResponse>(updated);
+
             return response;
-    
         }
     }
-    
     
 }

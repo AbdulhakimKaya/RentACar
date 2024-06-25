@@ -1,12 +1,14 @@
 using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Pipelines.Caching;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transaction;
 using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Colors.Commands.Delete;
 
-public class DeleteColorCommand: IRequest<DeletedColorResponse>, ICacheRemoverRequest
+public class DeleteColorCommand: IRequest<DeletedColorResponse>, ICacheRemoverRequest, ILoggableRequest,ITransactionalRequest
 {
     public Guid Id { get; set; }
     public string CacheKey => "";

@@ -7,8 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Cars\Commands\Delete\" />
-      <Folder Include="Features\Cars\Commands\Update\" />
+      <Folder Include="Features\Auth\Commands\" />
       <Folder Include="Features\Images\Constants\" />
       <Folder Include="Features\Images\Queries\" />
       <Folder Include="Features\Images\Rules\" />

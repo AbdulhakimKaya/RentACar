@@ -3,6 +3,8 @@ using System.Diagnostics;
 using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Pipelines.Caching;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transaction;
 using Core.CrossCuttingConcerns.Exceptions.Types;
 using Dapper;
 using Domain.Entities;
@@ -14,7 +16,7 @@ using Microsoft.Extensions.FileProviders;
 
 namespace Application.Features.Images.Commands.Create;
 
-public class CreateImageCommand : IRequest<CreateImageCommandResponse>, ICacheRemoverRequest
+public class CreateImageCommand : IRequest<CreateImageCommandResponse>, ICacheRemoverRequest, ITransactionalRequest, ILoggableRequest
 {
     public IFormFile? Image { get; set; }
     
