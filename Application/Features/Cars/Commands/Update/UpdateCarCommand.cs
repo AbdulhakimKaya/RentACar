@@ -53,13 +53,24 @@ public class UpdateCarCommand : IRequest<UpdateCarResponse>,ITransactionalReques
         {
             await _carBusiness.CarIsPresent(request.Id);
 
-            var car = _mapper.Map<Car>(request);
+            Car? car = await _carRepository.GetAsync(predicate: c => c.Id == request.Id,
+                cancellationToken: cancellationToken);
 
-            var updated = await _carRepository.UpdateAsync(car);
+            car = _mapper.Map(request, car);
 
-            var response = _mapper.Map<UpdateCarResponse>(updated);
+            await _carRepository.UpdateAsync(car);
+
+            UpdateCarResponse response = _mapper.Map<UpdateCarResponse>(car);
 
             return response;
+
+            // var car = _mapper.Map<Car>(request);
+            //
+            // var updated = await _carRepository.UpdateAsync(car);
+            //
+            // var response = _mapper.Map<UpdateCarResponse>(updated);
+            //
+            // return response;
         }
     }
     

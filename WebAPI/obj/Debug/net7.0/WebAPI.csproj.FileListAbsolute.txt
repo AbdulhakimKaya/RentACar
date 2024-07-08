@@ -296,3 +296,4 @@ C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\D
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Dapper.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\abdul\RiderProjects\CSharpnArchitectureCourse\src\rentACar\WebAPI\bin\Debug\net7.0\CloudinaryDotNet.dll

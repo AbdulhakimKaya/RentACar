@@ -56,10 +56,10 @@ namespace WebAPI.Controllers
         }
         
         [HttpPost("GetList/ByDynamic")]
-        public async Task<IActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest, [FromBody] DynamicQuery dynamicQuery = null)
+        public async Task<IActionResult> GetListByDynamic( [FromBody] DynamicQuery dynamicQuery = null)
         {
-            GetListByDynamicModelQuery getListByDynamicModelQuery = new() { PageRequest = pageRequest, DynamicQuery = dynamicQuery};
-            GetListResponse<GetListByDynamicModelListItem> response = await Mediator!.Send(getListByDynamicModelQuery);
+            GetListByDynamicModelQuery getListByDynamicModelQuery = new() {DynamicQuery = dynamicQuery};
+            List<GetListByDynamicModelListItem> response = await Mediator!.Send(getListByDynamicModelQuery);
             return Ok(response);
         }
         

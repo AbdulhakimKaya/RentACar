@@ -1,15 +1,18 @@
+using Application.Features.Brands.Queries.GetListRandom;
 using Application.Services.Repositories;
 using AutoMapper;
-using Core.Persistence.Repositories;
+using Core.Application.Pipelines.Caching;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Features.Brands.Queries.GetListRandom;
+namespace Application.Features.Cars.Queries.GetListRandom;
 
-public class GetListRandomCarsQuery : IRequest<List<GetListRandomCarsResponse>>
+public class GetListRandomCarsQuery : IRequest<List<GetListRandomCarsResponse>> , ICacheableRequest
 {
-
-    
+    public string CacheKey => "GetListRandomCarQuery";
+    public bool BypassCache => false;
+    public string? CacheGroupKey => "GetCars";
+    public TimeSpan? SlidingExpiration { get; }
     public class GetListRandomCarsQueryHandler : IRequestHandler<GetListRandomCarsQuery,List<GetListRandomCarsResponse>>
     {
 
@@ -28,7 +31,7 @@ public class GetListRandomCarsQuery : IRequest<List<GetListRandomCarsResponse>>
 
             var cars = await _carRepository
                 .Query()
-                .Where(c=>c.CarState==0)
+                .Where(c => c.CarState == 0)
                 .Take(10)
                 .OrderBy(c => Guid.NewGuid())
                 .Include(c => c.Images)

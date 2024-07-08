@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Application;
+using Application.Services.FileServices;
 using Core.CrossCuttingConcerns.Exceptions.Extensions;
 using Core.Security;
 using Core.Security.Encryption;
@@ -30,7 +31,7 @@ builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(
 );
 
 builder.Services.AddDistributedMemoryCache();
-
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("Cloudinary"));
 // docker run --name my-redis -p 6379:6379 -d redis
 builder.Services.AddStackExchangeRedisCache(opt => opt.Configuration = "localhost:6379");
 

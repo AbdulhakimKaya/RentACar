@@ -2,6 +2,7 @@ using System.Data;
 using System.Net;
 using System.Reflection;
 using Application.Services.AuthServices;
+using Application.Services.FileServices;
 using Application.Services.UserServices;
 using Core.Application.Pipelines.Caching;
 using Core.Application.Pipelines.Logging;
@@ -25,6 +26,7 @@ public static class ApplicationServiceRegistration
         services.AddTransient<IDbConnection>(provider => new SqlConnection(Configuration.GetConnectionString("DefaultConnection")));
         services.AddScoped<IAuthService, AuthManager>();
         services.AddScoped<IUserService, UserManager>();
+        services.AddScoped<IFileService, FileService>();
         
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         

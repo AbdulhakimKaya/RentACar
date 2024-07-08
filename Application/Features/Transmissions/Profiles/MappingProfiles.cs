@@ -1,5 +1,6 @@
 using Application.Features.Transmissions.Commands.Create;
 using Application.Features.Transmissions.Commands.Delete;
+using Application.Features.Transmissions.Commands.Update;
 using Application.Features.Transmissions.Queries.GetById;
 using Application.Features.Transmissions.Queries.GetList;
 using AutoMapper;
@@ -13,6 +14,9 @@ public class MappingProfiles: Profile
     {
         CreateMap<Transmission, CreateTransmissionCommand>().ReverseMap();
         CreateMap<Transmission, CreatedTransmissionResponse>().ReverseMap();
+        
+        CreateMap<Transmission, UpdateTransmissionCommand>().ReverseMap();
+        CreateMap<Transmission, UpdatedTransmissionResponse>().ReverseMap();
         
         CreateMap<Transmission, DeleteTransmissionCommand>().ReverseMap();
         CreateMap<Transmission, DeletedTransmissionResponse>().ReverseMap();

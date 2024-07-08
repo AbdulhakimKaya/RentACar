@@ -1,3 +1,4 @@
+using Application.Features.Auth.Commands.Delete;
 using Application.Features.Auth.Commands.Login;
 using Application.Features.Auth.Commands.Register;
 using Application.Features.Users.Commands.Update;
@@ -62,5 +63,11 @@ public class AuthController : BaseController
         return Ok(response);
     } 
     
-    
+    [HttpDelete("delete/{id}")]
+    public async Task<IActionResult> Delete([FromRoute] int id)
+    {
+        DeletedUserResponse response = await Mediator!.Send(new DeleteUserCommand() { Id = id });
+
+        return Ok(response);
+    }
 }
